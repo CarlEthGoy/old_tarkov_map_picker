@@ -1,0 +1,12 @@
+<h5 ly-dialog-title>Your map is :</h5>
+<div ly-dialog-content>
+  <div lyTyp="body2" color="text:secondary">
+    <span class="map-choice">
+      {{data.name}} !
+    </span>
+  </div>
+</div>
+<ly-grid container justify="end" ly-dialog-actions>
+  <button ly-button color="warning" (click)="dialogRef.close(true)">REROLL</button>
+  <button ly-button color="primary" (click)="dialogRef.close()">OK</button>
+</ly-grid>

@@ -1,0 +1,47 @@
+<ly-paper>
+    <ly-toolbar position="static" bg="primary" [elevation]="3">
+      <button ly-button color="primary:contrast" appearance="icon" (click)="_drawer.toggle()" lyShow="XSmall">
+        <ly-icon>menu</ly-icon>
+      </button>
+      <h6 lyTyp="title">Tarkovv</h6>
+    </ly-toolbar>
+  
+    <ly-drawer-container [withClass]="classes.drawerContainer">
+  
+      <ly-drawer #_drawer="lyDrawer"
+        ly-paper
+        opened
+        position="before"
+        [drawerWidth]="width"
+      >
+        <ly-list>
+          <button ly-list-item>
+            <ly-icon ly-list-icon disablePadding>shuffle</ly-icon>
+            <span ly-line>Map picker</span>
+          </button>
+          <button ly-list-item>
+            <ly-icon ly-list-icon disablePadding>build</ly-icon>
+            <span ly-line>Configuration</span>
+          </button>
+          <button ly-list-item>
+            <ly-icon ly-list-icon disablePadding>message</ly-icon>
+            <span ly-line>Autre</span>
+          </button>
+        </ly-list>
+        <div [className]="classes.icon">
+          <button ly-button (click)="_drawer.toggle()" appearance="icon" lyShow="XSmall">
+            <ly-icon>close</ly-icon>
+          </button>
+          <button ly-button (click)="toggleMini()" appearance="icon">
+            <ly-icon *ngIf="mini">chevron_left</ly-icon>
+            <ly-icon *ngIf="!mini">chevron_right</ly-icon>
+          </button>
+        </div>
+      </ly-drawer>
+  
+      <ly-drawer-content [withClass]="classes.drawerContent">
+        <router-outlet></router-outlet>
+      </ly-drawer-content>
+  
+    </ly-drawer-container>
+  </ly-paper>

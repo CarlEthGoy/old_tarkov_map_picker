@@ -1,0 +1,17 @@
+<h4 lyTyp="title" gutterBottom>Maps</h4>
+<form
+  [formGroup]="form"
+>
+  <ly-grid container
+    justify="between"
+    formArrayName="maps"
+    *ngFor="let map of mapsAbstractControlArray; index as i;"
+  >
+    <ly-checkbox
+      [color]="'primary'"
+      [formControlName]="i"
+    >{{ maps[i].name }}</ly-checkbox>
+  </ly-grid>
+</form>
+
+<button ly-button (click)="pickAMap()">Pick a map!</button>
